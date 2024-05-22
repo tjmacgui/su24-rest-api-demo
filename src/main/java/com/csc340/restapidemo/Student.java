@@ -47,4 +47,14 @@ public class Student {
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
+
+    @Override
+    public String toString() {
+        return id + "," + name + "," + major + "," + gpa;
+    }
+
+    public static Student fromString(String line) {
+        String[] parts = line.split(",");
+        return new Student(Integer.parseInt(parts[0]), parts[1], parts[2], Double.parseDouble(parts[3]));
+    }
 }
